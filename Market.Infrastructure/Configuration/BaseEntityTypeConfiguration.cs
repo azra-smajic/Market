@@ -1,6 +1,6 @@
+using Market.Core.Entities.BaseEntity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Market.Core.Entities.BaseEntity;
 
 namespace Market.Infrastructure.Configurations
 {
