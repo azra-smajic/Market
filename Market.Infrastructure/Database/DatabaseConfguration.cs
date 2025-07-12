@@ -5,6 +5,10 @@ namespace Market.Infrastructure.Database
 {
     public partial class DatabaseContext
     {
+        public DatabaseContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(Console.WriteLine);

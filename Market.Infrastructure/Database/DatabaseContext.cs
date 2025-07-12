@@ -7,12 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 using Market.Entities;
 using Microsoft.EntityFrameworkCore.Design;
+using Market.Core.Entities.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Market.Core.Entities;
 
 namespace Market.Infrastructure.Database
 {
-    public partial class DatabaseContext : DbContext
+    public partial class DatabaseContext : IdentityDbContext<
+        ApplicationUser,
+        ApplicationRole,
+        Guid,
+        ApplicationUserClaim,
+        ApplicationUserRole,
+        ApplicationUserLogin,
+        ApplicationRoleClaim,
+        ApplicationUserToken>
     {
         public DbSet<MarketEntity> Markets { get; set; }
+        public DbSet<Person> Person { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {

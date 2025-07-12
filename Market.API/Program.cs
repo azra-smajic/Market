@@ -6,6 +6,8 @@ using Market.Infrastructure.Repositories.MarketRepository;
 
 using Market.Services.MarketService;
 using Market.Shared.Constants;
+using Market.Services.ApplicationUserService;
+using Market.Infrastructure.Repositories.ApplicationUserRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,7 @@ builder.Services.AddAutoMapper(typeof(Program), typeof(Profiles));
 #region Services
 
 builder.Services.AddScoped<IMarketService, MarketService>();
+builder.Services.AddScoped<IApplicationUserService, ApplicationUserSevice>();
 
 #endregion Services
 
@@ -31,6 +34,7 @@ builder.Services.AddScoped<IMarketService, MarketService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IMarketRepository, MarketRepository>();
+builder.Services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 
 #endregion Repositories
 

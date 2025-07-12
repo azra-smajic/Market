@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Storage;
 using Market.Infrastructure.Database;
 using Market.Infrastructure.Repositories.MarketRepository;
+using Market.Infrastructure.Repositories.ApplicationUserRepository;
 
 namespace Market.Infrastructure.UnitOfWork
 {
@@ -9,11 +10,15 @@ namespace Market.Infrastructure.UnitOfWork
     {
         private readonly DatabaseContext _databaseContext;
         public readonly IMarketRepository MarketRepository;
+        public readonly IApplicationUserRepository ApplicationUserRepository;
 
         public UnitOfWork(DatabaseContext databaseContext,
-            IMarketRepository marketRepository)
+            IMarketRepository marketRepository,
+            IApplicationUserRepository applicationUserRepository
+            )
         {
             MarketRepository = marketRepository;
+            ApplicationUserRepository = applicationUserRepository;
         }
 
         public async Task<int> Execute(Action action)
