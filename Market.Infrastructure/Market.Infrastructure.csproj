@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Functions\0001_fn_markets_get_by_id.sql" />
+    <EmbeddedResource Include="Functions\0005_fn_userroles_get_by_username.sql" />
+    <EmbeddedResource Include="Functions\0004_fn_person_get_by_username.sql" />
+    <EmbeddedResource Include="Functions\0003_fn_users_get_by_username.sql" />
     <EmbeddedResource Include="Functions\0002_fn_markets_get_by_parameters.sql" />
   </ItemGroup>
 

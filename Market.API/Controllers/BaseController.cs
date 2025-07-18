@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Market.Core.SearchObjects;
 using Market.Services.BaseService;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Market.API.Controllers
 {
     [Route("[controller]/[action]")]
-    //[Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
     public class BaseController<dtoEntity, dtoInsertEntity, dtoUpdateEntity, dtoForPagination, dtoSearchObject> : ControllerBase where dtoEntity : class
     {

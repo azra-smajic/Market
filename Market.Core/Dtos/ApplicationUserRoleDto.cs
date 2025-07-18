@@ -8,9 +8,9 @@ namespace Market.Core.Dtos
 {
     public class ApplicationUserRoleDto : BaseDto
     {
-        public int RoleId { get; set; }
+        public Guid RoleId { get; set; }
         public ApplicationRoleDto Role { get; set; }
         public ApplicationUserDto User { get; set; }
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

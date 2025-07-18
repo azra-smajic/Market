@@ -1,5 +1,5 @@
 ﻿CREATE OR REPLACE FUNCTION public.fn_person_getbyusername("pUserName" text)
- RETURNS SETOF "Persons"
+ RETURNS SETOF "Person"
  LANGUAGE plpgsql
 AS $function$
 BEGIN	

@@ -54,7 +54,7 @@ namespace Market.Infrastructure.Database
                     NormalizedEmail = "SU.ADMIN@GMAIL.BA",
                     EmailConfirmed = true,
                     ConcurrencyStamp = "9547f983-1707-49d3-9390-5ec84ec35dca",
-                    PasswordHash = "AQAAAAEAACcQAAAAEAGwZeqqUuR5X1kcmNbxwyTWxg2VDSnKdFTIFBQrQe5J/UTwcPlFFe6VkMa+yAmKgQ==",//Test1234
+                    PasswordHash = "AQAAAAIAAYagAAAAEDVUQ30YB5tOClcClcXQ7w8G7NyIXwX7ZkjOzVxN4pjHu8/ixuLSExS7Oqd7f+fosg==",//Test1234*
                     CreatedAt = dateTime,
                 },
             });
