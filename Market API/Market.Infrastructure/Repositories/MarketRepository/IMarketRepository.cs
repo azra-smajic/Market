@@ -7,7 +7,7 @@ namespace Market.Infrastructure.Repositories.MarketRepository
 {
     public interface IMarketRepository : IBaseRepository<MarketEntity, Guid>
     {
-        Task<MarketDto> GetByIdAsync(int id);
+        Task<MarketDto> GetByIdAsync(Guid id);
 
         Task<List<MarketIndexDto>> GetForPaginationAsync(BaseSearchObject searchObject, int pageSize, int offeset)
            => throw new NotImplementedException();

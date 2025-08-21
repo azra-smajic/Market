@@ -27,7 +27,7 @@ namespace Market.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public virtual async Task<dtoEntity> Get(int id)
+        public virtual async Task<dtoEntity> Get(Guid id)
         {
             return await BaseService.GetByIdAsync(id);
         }
@@ -45,13 +45,14 @@ namespace Market.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public virtual async Task<dtoEntity> Put(int id, dtoUpdateEntity updateEntity)
+        public virtual async Task<dtoEntity> Put(Guid id, dtoUpdateEntity updateEntity)
         {
-            return await BaseService.UpdateAsync(Mapper.Map<dtoEntity>(updateEntity));
+            var dbEntity = await BaseService.GetByIdAsync(id);
+            return await BaseService.UpdateAsync(Mapper.Map(updateEntity, dbEntity));
         }
 
         [HttpDelete("{id}")]
-        public virtual async Task<IActionResult> Delete(int id)
+        public virtual async Task<IActionResult> Delete(Guid id)
         {
             await BaseService.RemoveByIdAsync(id);
             return Ok();

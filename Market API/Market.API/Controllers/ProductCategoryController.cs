@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Market.Core.Dtos;
 using Market.Core.SearchObjects;
-using Market.Services.MarketService;
+using Market.Services.ProductCategoryService;
 
 namespace Market.API.Controllers
 {
-    public class MarketController : BaseController<MarketDto, MarketDto, MarketDto, MarketIndexDto, MarketSearchObject>
+    public class ProductCategoryController : BaseController<ProductCategoryDto, ProductCategoryUpsertDto, ProductCategoryUpsertDto, ProductCategoryIndexDto, ProductCategorySearchObject>
     {
-        public MarketController(IMarketService marketService, IMapper mapper) : base(marketService, mapper)
+        public ProductCategoryController(IProductCategoryService productCategoryService, IMapper mapper) : base(productCategoryService, mapper)
         {
         }
     }

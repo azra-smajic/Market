@@ -39,12 +39,12 @@ namespace Market.Services.ApplicationUserService
             throw new NotImplementedException();
         }
 
-        public Task<ApplicationUserDto> GetByIdAsync(int id)
+        public Task<ApplicationUserDto> GetByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveByIdAsync(int id, bool isSoft = true)
+        public Task RemoveByIdAsync(Guid id, bool isSoft = true)
         {
             throw new NotImplementedException();
         }

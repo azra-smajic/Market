@@ -25,7 +25,7 @@ namespace Market.Services.ProductCategoryService
             throw new NotImplementedException();
         }
 
-        public Task<ProductCategoryDto> GetByIdAsync(int id)
+        public Task<ProductCategoryDto> GetByIdAsync(Guid id)
         {
             return _unitOfWork.ProductCategoryRepository.GetByIdAsync(id);
         }
@@ -35,7 +35,7 @@ namespace Market.Services.ProductCategoryService
             return _unitOfWork.ProductCategoryRepository.GetForPaginationAsync(baseSearchObject, pageSize, offeset);
         }
 
-        public async Task RemoveByIdAsync(int id, bool isSoft = true)
+        public async Task RemoveByIdAsync(Guid id, bool isSoft = true)
         {
             await _unitOfWork.ProductCategoryRepository.RemoveByIdAsync(id, isSoft);
             await _unitOfWork.SaveChangesAsync();

@@ -25,7 +25,7 @@ namespace Market.Services.MarketService
             throw new NotImplementedException();
         }
 
-        public Task<MarketDto> GetByIdAsync(int id)
+        public Task<MarketDto> GetByIdAsync(Guid id)
         {
             return _unitOfWork.MarketRepository.GetByIdAsync(id);
         }
@@ -35,7 +35,7 @@ namespace Market.Services.MarketService
             return _unitOfWork.MarketRepository.GetForPaginationAsync(baseSearchObject, pageSize, offeset);
         }
 
-        public async Task RemoveByIdAsync(int id, bool isSoft = true)
+        public async Task RemoveByIdAsync(Guid id, bool isSoft = true)
         {
             await _unitOfWork.MarketRepository.RemoveByIdAsync(id, isSoft);
             await _unitOfWork.SaveChangesAsync();

@@ -8,9 +8,9 @@ namespace Market.Services.BaseService
 
         Task<List<EntityDto>> GetAllAsync();
 
-        Task<EntityDto> GetByIdAsync(int id);
+        Task<EntityDto> GetByIdAsync(Guid id);
 
-        Task RemoveByIdAsync(int id, bool isSoft = true);
+        Task RemoveByIdAsync(Guid id, bool isSoft = true);
 
         void Update(EntityDto entity);
 

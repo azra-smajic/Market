@@ -1,9 +1,9 @@
-import { makeObservable } from "mobx";
-import { BaseSearchObject } from "./Providers/BaseProvider";
-import config from "./config";
+import { action, computed, makeObservable, observable } from "mobx";
+import { BaseIndexDto, BaseSearchObject } from "../Providers/BaseProvider";
+import config from "../config";
 
 export class BasePaginationStore<
-  T,
+  T extends BaseIndexDto = BaseIndexDto,
   TSearch extends BaseSearchObject = BaseSearchObject,
 > {
   items: T[] = [];
@@ -14,14 +14,31 @@ export class BasePaginationStore<
   search?: TSearch;
 
   constructor() {
-    makeObservable(this);
+    makeObservable(this, {
+      items: observable,
+      isLoading: observable,
+      currentPage: observable,
+      pageSize: observable,
+      totalItems: observable,
+
+      setAllPagingParameters: action,
+      setPage: action,
+      setTotalItems: action,
+      setLoading: action,
+      setSearchQuery: action,
+      computedTotalItems: computed,
+    });
   }
   setAllPagingParameters = (page: number, totalItems: number) => {
     this.setPage(page);
     this.setTotalItems(totalItems);
   };
+  get computedTotalItems(): number {
+    return this.items[0]?.totalRecordsCount ?? this.totalItems;
+  }
   setPage = (page: number) => {
     this.currentPage = page;
+    this.loadData();
   };
 
   setTotalItems = (total: number) => {

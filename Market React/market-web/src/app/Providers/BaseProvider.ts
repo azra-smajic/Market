@@ -4,9 +4,15 @@ import { getItemWithExpiry } from "../util/tokenStorage";
 export interface BaseSearchObject {
   [searchFilter: string]: any;
 }
+export interface BaseIndexDto {
+  [id: string]: any;
+  [totalRecordsCount: number]: any;
+}
 
 export class BaseProvider<
-  T,
+  TIndex,
+  TInsert,
+  TUpdate,
   TSearch extends BaseSearchObject = BaseSearchObject,
 > {
   protected baseUrl: string;
@@ -23,7 +29,7 @@ export class BaseProvider<
     };
   }
 
-  async getById(id: string | number): Promise<T> {
+  async getById(id: string | number): Promise<TIndex> {
     const res = await fetch(`${this.baseUrl}/${id}`, {
       headers: this.getHeaders(),
     });
@@ -31,7 +37,7 @@ export class BaseProvider<
     return res.json();
   }
 
-  async getAll(): Promise<T[]> {
+  async getAll(): Promise<TIndex[]> {
     const res = await fetch(this.baseUrl, {
       headers: this.getHeaders(),
     });
@@ -39,8 +45,8 @@ export class BaseProvider<
     return res.json();
   }
 
-  async create(data: T): Promise<T> {
-    const res = await fetch(this.baseUrl, {
+  async create(data: TInsert): Promise<TIndex> {
+    const res = await fetch(`${this.baseUrl}/Post`, {
       method: "POST",
       headers: this.getHeaders(),
       body: JSON.stringify(data),
@@ -49,8 +55,8 @@ export class BaseProvider<
     return res.json();
   }
 
-  async update(id: string | number, data: T): Promise<T> {
-    const res = await fetch(`${this.baseUrl}/${id}`, {
+  async update(id: string | number, data: TUpdate): Promise<TIndex> {
+    const res = await fetch(`${this.baseUrl}/Put/${id}`, {
       method: "PUT",
       headers: this.getHeaders(),
       body: JSON.stringify(data),
@@ -71,7 +77,7 @@ export class BaseProvider<
     page: number,
     pageSize: number,
     searchParams?: TSearch
-  ): Promise<T[]> {
+  ): Promise<TIndex[]> {
     const url = new URL(
       `${this.baseUrl}/Get/${page}/${pageSize}`,
       window.location.origin

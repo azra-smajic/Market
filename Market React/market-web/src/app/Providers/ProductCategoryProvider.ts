@@ -1,11 +1,13 @@
 import config from "../config";
-import { BaseProvider, BaseSearchObject } from "./BaseProvider";
+import { BaseIndexDto, BaseProvider, BaseSearchObject } from "./BaseProvider";
 
-export interface ProductCategoryDto {
-  id: number;
+export interface ProductCategoryDto extends BaseIndexDto {
   name: string;
   marketId?: string;
-  totalRecordsCount?: number;
+}
+export interface ProductCategoryUpsertDto {
+  name: string;
+  marketId: string | null;
 }
 
 export interface ProductCategorySearchObject extends BaseSearchObject {
@@ -14,6 +16,8 @@ export interface ProductCategorySearchObject extends BaseSearchObject {
 
 export class ProductCategoryProvider extends BaseProvider<
   ProductCategoryDto,
+  ProductCategoryUpsertDto,
+  ProductCategoryUpsertDto,
   ProductCategorySearchObject
 > {
   constructor() {

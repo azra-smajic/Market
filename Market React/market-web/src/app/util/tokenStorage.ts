@@ -16,6 +16,7 @@ export function setItemWithExpiry<T>(key: string, value: T, ttl: number): void {
 }
 
 export function getItemWithExpiry<T>(key: string): T | null {
+  if (typeof window === "undefined") return null;
   const itemStr = localStorage.getItem(key);
 
   if (!itemStr) return null;

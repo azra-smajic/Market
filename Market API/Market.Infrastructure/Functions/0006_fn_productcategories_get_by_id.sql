@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE FUNCTION public.fn_productcategories_get_by_id("pId" integer)
+﻿CREATE OR REPLACE FUNCTION public.fn_productcategories_get_by_id("pId" uuid)
  RETURNS SETOF "ProductCategories"
  LANGUAGE plpgsql
 AS $function$

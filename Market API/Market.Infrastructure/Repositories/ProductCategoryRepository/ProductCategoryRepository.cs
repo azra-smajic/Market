@@ -14,13 +14,13 @@ namespace Market.Infrastructure.Repositories.ProdutCategoryRepository
         {
         }
 
-        public async Task<ProductCategoryDto> GetByIdAsync(int pId)
+        public async Task<ProductCategoryDto> GetByIdAsync(Guid pId)
         {
             var query = "SELECT * FROM fn_productcategories_get_by_id(@pId);";
 
             var result = await DbConnection.QueryFirstAsync(query, new DynamicParameters(new { pId }));
 
-            return Mapper.Map<MarketDto>(result);
+            return Mapper.Map<ProductCategoryDto>(result);
         }
 
         public async Task<List<ProductCategoryIndexDto>> GetForPaginationAsync(BaseSearchObject searchObject, int pageSize, int offeset)

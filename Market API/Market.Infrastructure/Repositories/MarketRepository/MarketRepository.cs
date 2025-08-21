@@ -14,7 +14,7 @@ namespace Market.Infrastructure.Repositories.MarketRepository
         {
         }
 
-        public async Task<MarketDto> GetByIdAsync(int pId)
+        public async Task<MarketDto> GetByIdAsync(Guid pId)
         {
             var query = "SELECT * FROM fn_markets_get_by_id(@pId);";
 

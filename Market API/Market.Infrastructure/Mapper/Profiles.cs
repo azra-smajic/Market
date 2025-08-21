@@ -13,6 +13,8 @@ namespace Market.Infrastructure.Mapper
         {
             CreateMap<MarketEntity, MarketDto>().ReverseMap();
             CreateMap<ProductCategory, ProductCategoryDto>().ReverseMap();
+            CreateMap<ProductCategory, ProductCategoryUpsertDto>().ReverseMap();
+            CreateMap<ProductCategoryDto, ProductCategoryUpsertDto>().ReverseMap();
 
             #region User
 

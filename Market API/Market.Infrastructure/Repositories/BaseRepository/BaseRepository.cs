@@ -22,7 +22,7 @@ namespace Market.Infrastructure.Repositories.BaseRepository
             _dbSet = DatabaseContext.Set<TEntity>();
         }
 
-        public async Task<TEntity> GetById(int id)
+        public async Task<TEntity> GetById(Guid id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -69,7 +69,7 @@ namespace Market.Infrastructure.Repositories.BaseRepository
             return DatabaseContext.Set<TEntity>().AddRangeAsync(entities);
         }
 
-        public async Task RemoveByIdAsync(int id, bool isSoft = true)
+        public async Task RemoveByIdAsync(Guid id, bool isSoft = true)
         {
             var entity = await _dbSet.FindAsync(id);
             if (entity == null)

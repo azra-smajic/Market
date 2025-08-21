@@ -4,7 +4,7 @@ namespace Market.Infrastructure.Repositories.BaseRepository
 {
     public interface IBaseRepository<TEntity, in TPrimaryKey> where TEntity : class
     {
-        Task<TEntity> GetById(int id);
+        Task<TEntity> GetById(Guid id);
 
         Task<TEntity> GetByIdAsync(TPrimaryKey id, bool asNoTracking = false);
 
@@ -16,7 +16,7 @@ namespace Market.Infrastructure.Repositories.BaseRepository
 
         Task AddRangeAsync<TDto>(IEnumerable<TDto> entitiesDto);
 
-        Task RemoveByIdAsync(int id, bool isSoft = true);
+        Task RemoveByIdAsync(Guid id, bool isSoft = true);
 
         Task RemoveRange<TDto>(IEnumerable<TDto> entitiesDto, bool isSoft = true) where TDto : class, IBaseEntity;
 

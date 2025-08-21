@@ -20,6 +20,7 @@ namespace Market.Infrastructure.UnitOfWork
             IProductCategoryRepository productCategoryRepository
             )
         {
+            _databaseContext = databaseContext;
             MarketRepository = marketRepository;
             ApplicationUserRepository = applicationUserRepository;
             ProductCategoryRepository = productCategoryRepository;
