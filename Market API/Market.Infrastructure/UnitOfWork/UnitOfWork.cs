@@ -4,6 +4,7 @@ using Market.Infrastructure.Database;
 using Market.Infrastructure.Repositories.MarketRepository;
 using Market.Infrastructure.Repositories.ApplicationUserRepository;
 using Market.Infrastructure.Repositories.ProdutCategoryRepository;
+using Market.Infrastructure.Repositories.ProductRepository;
 
 namespace Market.Infrastructure.UnitOfWork
 {
@@ -13,17 +14,20 @@ namespace Market.Infrastructure.UnitOfWork
         public readonly IMarketRepository MarketRepository;
         public readonly IApplicationUserRepository ApplicationUserRepository;
         public readonly IProductCategoryRepository ProductCategoryRepository;
+        public readonly IProductRepository ProductRepository;
 
         public UnitOfWork(DatabaseContext databaseContext,
             IMarketRepository marketRepository,
             IApplicationUserRepository applicationUserRepository,
-            IProductCategoryRepository productCategoryRepository
+            IProductCategoryRepository productCategoryRepository,
+            IProductRepository productRepository
             )
         {
             _databaseContext = databaseContext;
             MarketRepository = marketRepository;
             ApplicationUserRepository = applicationUserRepository;
             ProductCategoryRepository = productCategoryRepository;
+            ProductRepository = productRepository;
         }
 
         public async Task<int> Execute(Action action)

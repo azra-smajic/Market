@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Market.Core.SearchObjects
 {
-    public class ProductCategorySearchObject : BaseSearchObject
+    public class ProductSearchObject : BaseSearchObject
     {
+        public Guid? ProductCategoryId { get; set; }
+        public string? Sku { get; set; }
     }
 }

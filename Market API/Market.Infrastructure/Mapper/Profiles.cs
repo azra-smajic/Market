@@ -15,6 +15,9 @@ namespace Market.Infrastructure.Mapper
             CreateMap<ProductCategory, ProductCategoryDto>().ReverseMap();
             CreateMap<ProductCategory, ProductCategoryUpsertDto>().ReverseMap();
             CreateMap<ProductCategoryDto, ProductCategoryUpsertDto>().ReverseMap();
+            CreateMap<Product, ProductDto>().ReverseMap();
+            CreateMap<Product, ProductIndexDto>().ReverseMap();
+            CreateMap<ProductImage, ProductImageDto>().ReverseMap();
 
             #region User
 

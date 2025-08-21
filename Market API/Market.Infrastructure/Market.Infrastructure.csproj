@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Functions\0010_fn_products_get_by_parameters.sql" />
+    <EmbeddedResource Include="Functions\0009_fn_productimages_get_by_productid.sql" />
+    <EmbeddedResource Include="Functions\0008_fn_products_get_by_id.sql" />
     <EmbeddedResource Include="Functions\0007_fn_productcategories_get_by_parameters.sql" />
     <EmbeddedResource Include="Functions\0006_fn_productcategories_get_by_id.sql" />
     <EmbeddedResource Include="Functions\0001_fn_markets_get_by_id.sql" />

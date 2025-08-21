@@ -1,10 +1,5 @@
 ﻿using Market.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Market.Entities;
 using Microsoft.EntityFrameworkCore.Design;
 using Market.Core.Entities.Identity;
@@ -25,6 +20,8 @@ namespace Market.Infrastructure.Database
     {
         public DbSet<MarketEntity> Markets { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Person> Person { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)

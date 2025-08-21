@@ -18,6 +18,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Market.Services.ProductCategoryService;
 using Market.Infrastructure.Repositories.ProdutCategoryRepository;
+using Market.Infrastructure.Repositories.ProductRepository;
+using Market.Services.ProductService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +39,7 @@ builder.Services.AddScoped<IMarketService, MarketService>();
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserSevice>();
 builder.Services.AddScoped<IAccessManager, AccessManager>();
 builder.Services.AddScoped<IProductCategoryService, ProductCategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped(typeof(IPasswordHasher<>), typeof(PasswordHasher<>));
 
 #endregion Services
@@ -47,6 +50,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IMarketRepository, MarketRepository>();
 builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
 builder.Services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 #endregion Repositories
 
