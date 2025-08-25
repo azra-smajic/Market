@@ -68,6 +68,18 @@ export default function MainLayout({
                 <ListItemText primary="Categories" />
               </ListItemButton>
             </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton
+                component={Link}
+                href="/Main/Product/ProductList"
+                selected={pathname.includes("/Product/ProductList")}
+              >
+                <ListItemIcon>
+                  <InboxIcon sx={{ color: "silver" }} />
+                </ListItemIcon>
+                <ListItemText primary="Products" />
+              </ListItemButton>
+            </ListItem>
           </List>
           <Divider />
         </Box>

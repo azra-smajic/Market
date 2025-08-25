@@ -1,5 +1,7 @@
-﻿CREATE OR REPLACE FUNCTION public.fn_products_get_by_parameters("pName" text,"pSku" text,"pMarketId" uuid,"pProductCategoryId" uuid,"pLimit" integer, "pOffset" integer)
- RETURNS TABLE("Id" uuid, "Name" text, "Sku" text,"MarketId" uuid, "ProductCategoryId" uuid, "ProductCategoryName" text, "Price" numeric, "Currency" text, "Discount" numeric, "TaxRate" numeric, "Status" text, "TotalRecordsCount" integer)
+﻿-- DROP FUNCTION public.fn_products_get_by_parameters(text, text, uuid, uuid, int4, int4);
+
+CREATE OR REPLACE FUNCTION public.fn_products_get_by_parameters("pName" text, "pSku" text, "pMarketId" uuid, "pProductCategoryId" uuid, "pLimit" integer, "pOffset" integer)
+ RETURNS TABLE("Id" uuid, "Name" text, "Sku" text, "MarketId" uuid, "ProductCategoryId" uuid, "ProductCategoryName" text, "Price" numeric, "Currency" text, "Discount" numeric, "TaxRate" numeric, "Status" text, "TotalRecordsCount" integer)
  LANGUAGE plpgsql
 AS $function$
 BEGIN	
@@ -25,8 +27,9 @@ BEGIN
 	AND ("pMarketId" IS NULL or "P"."MarketId" = "pMarketId")
 	AND ("pProductCategoryId" IS NULL or "P"."ProductCategoryId" = "pProductCategoryId")
 		AND "M"."IsDeleted" = FALSE	AND "PC"."IsDeleted" = FALSE AND "P"."IsDeleted" = FALSE
-	ORDER BY "P"."DateCreated" DESC
+	ORDER BY "P"."CreatedAt" DESC
   LIMIT "pLimit"
   OFFSET "pOffset";
 end;
-$function$;
+$function$
+;

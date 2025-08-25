@@ -1,9 +1,8 @@
 import { BaseModalStore } from "@/app/BaseStores/BaseModalStore";
-import { productCategoryProvider } from "@/app/providers";
+import { baseToaster, productCategoryProvider } from "@/app/providers";
 import { ProductCategoryUpsertDto } from "@/app/Providers/ProductCategoryProvider";
 import { getItemWithExpiry } from "@/app/util/tokenStorage";
 import { action, makeObservable, observable } from "mobx";
-import { toast } from "react-toastify";
 
 export class ProductCategoryUpsertStore extends BaseModalStore {
   item: ProductCategoryUpsertDto = {
@@ -33,27 +32,13 @@ export class ProductCategoryUpsertStore extends BaseModalStore {
       );
 
       if (response != null) {
-        toast.success("Successfully edited product category", {
-          position: "bottom-right",
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "light",
-        });
+        baseToaster.toastSuccess("Successfully edited product category");
       }
     } else {
       let response = await productCategoryProvider.create(this.item);
 
       if (response != null) {
-        toast.success("Successfully created/edited product category", {
-          position: "bottom-right",
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "light",
-        });
+        baseToaster.toastSuccess("Successfully added product category");
       }
     }
 
